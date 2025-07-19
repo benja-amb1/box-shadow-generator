@@ -9,6 +9,7 @@ function App() {
   const [boxColor, setBoxColor] = useState('#000000');
   const [opacity, setOpacity] = useState(0.75);
   const [inset, setInset] = useState(false);
+  const [copy, setCopy] = useState(null);
 
   const toggleInset = () => {
     setInset(prev => !prev)
@@ -48,18 +49,18 @@ function App() {
 
           <p>Shadow Color Opacity: {opacity}</p>
 
+          <p>Inset: {inset ? 'ON' : 'OFF'}</p>
           <input type='checkbox' onClick={toggleInset} />
-          <p>{inset ? 'ON' : 'OFF'}</p>
 
         </div>
 
 
-        <div className='box-reference'>
+        <div className='box-reference' style={{ boxShadow: boxShadow }}>
         </div>
 
         <div className='box-css'>
-
-          <button>Copy</button>
+          <p><code>box-shadow: {boxShadow};</code></p>
+          <button onClick={() => setCopy(navigator.clipboard.writeText(`box-shadow: ${boxShadow};`))}>{copy ? 'Copied' : 'Copy'}</button>
         </div>
 
 
