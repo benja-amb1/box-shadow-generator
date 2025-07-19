@@ -14,6 +14,9 @@ function App() {
     setInset(prev => !prev)
   }
 
+  const boxShadow = `${inset ? 'inset ' : ''}${horizontalPx}px ${verticalPx}px ${blurRadius}px ${spreadRadius}px rgba(${parseInt(boxColor.slice(1, 3), 16)},${parseInt(boxColor.slice(3, 5), 16)},${parseInt(boxColor.slice(5, 7), 16)},${opacity})`;
+
+
   return (
     <>
       <section className='box-shadow-section'>
@@ -50,9 +53,16 @@ function App() {
 
         </div>
 
-        <div className='box-reference'>
 
+        <div className='box-reference'>
         </div>
+
+        <div className='box-css'>
+
+          <button>Copy</button>
+        </div>
+
+
 
       </section>
     </>
