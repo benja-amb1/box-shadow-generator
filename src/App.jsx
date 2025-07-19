@@ -16,10 +16,8 @@ function App() {
 
   return (
     <>
-      <section>
-        <div className='box-reference'>
+      <section className='box-shadow-section'>
 
-        </div>
 
         <div className='box-user'>
           <input type="range" min='-200' max='200' onChange={e => setHorizontalPx(e.target.value)} />
@@ -43,12 +41,16 @@ function App() {
           <input type="color" onChange={e => setBoxColor(e.target.value)} />
           <p>Shadow Color: {boxColor}</p>
 
-          <input type="range" min='0' max='1' onChange={e => setOpacity(e.target.value)} />
+          <input type="range" min='0' max='1' onChange={e => setOpacity(e.target.value)} step='0.01' />
 
-          <p>Shadow Color Opacity: {spreadRadius}px</p>
+          <p>Shadow Color Opacity: {opacity}</p>
 
           <input type='checkbox' onClick={toggleInset} />
           <p>{inset ? 'ON' : 'OFF'}</p>
+
+        </div>
+
+        <div className='box-reference'>
 
         </div>
 
